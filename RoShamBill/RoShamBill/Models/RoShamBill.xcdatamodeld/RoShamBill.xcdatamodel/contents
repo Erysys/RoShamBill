@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GameEntity" representedClassName="GameEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="datePlayed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="maxGuessNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="minGuessNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numOfPlayers" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="targetNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="winner" optional="YES" attributeType="String"/>
+        <relationship name="toRounds" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RoundEntity" inverseName="toGame" inverseEntity="RoundEntity"/>
+    </entity>
+    <entity name="RoundEntity" representedClassName="RoundEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="guess" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="player" optional="YES" attributeType="String"/>
+        <attribute name="result" optional="YES" attributeType="String"/>
+        <attribute name="roundIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="toGame" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameEntity" inverseName="toRounds" inverseEntity="GameEntity"/>
+    </entity>
+    <entity name="SettingsEntity" representedClassName="SettingsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="maxNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="minNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="GameEntity" positionX="27" positionY="108" width="128" height="148"/>
+        <element name="RoundEntity" positionX="0" positionY="63" width="128" height="118"/>
+        <element name="SettingsEntity" positionX="-36" positionY="9" width="128" height="73"/>
+    </elements>
+</model>
